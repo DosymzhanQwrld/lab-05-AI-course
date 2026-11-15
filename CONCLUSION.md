@@ -41,6 +41,11 @@ what kind of question would make you choose the other one.
 
 (write here)
 
----
+Workflow vs. Agent
+The workflow had better performance on the fixed shape questions. The workflow correctly answered 13/15 questions and the agent answered 9/15. It also made 15 model calls and 3,852 tokens, while the agent made 26 calls and 19,835 tokens. The workflow was more cost-effective as they did not have to select tools repeatedly but followed a predetermined workflow. It was unable to recover from wrong region names, though. The tool did not accept the names in questions 21 and 22, and workflow did not return a response. The agent was more flexible and could try the 9 open questions and got 7/9 right. Predictable tasks, I would use a workflow; more flexible steps for questions, an agent.
+Harness Layers
+The bare agent answered 16/24 questions correctly, and had 4 answers wrong and 4 blanked. Layer 1 returned tool errors back to the model, and did not stop, resulting in correct answers of 18/24. It did help the agent get some invalid region names (but some unanswered questions turned into wrong answers). A step budget was added to Layer 2, but this had no effect on the results. Layer 3 assessed if there was an evidence-based response to the tools. It maintained 18 out of 24 correct answers while decreasing the number of incorrect answers from 6 to 4 and avoiding 2 answers. A number was caught that was not in the tool output in q18. However, the use of a number from a tool doesn't mean the answer is right.
+Memory and Notes
+I included comments for valid region names, use of tools, ranks and calculations. The notes were useful for answering the alias questions (q21 & q22) as the agent knew how to use the accepted region names. But they weren't successful in increasing accuracy overall. Both versions answered 18/24 questions correctly. There was a decrease in wrong answers from 4 to 2, and no increase in answers from 2 to 4. Questions q14 and q16 were made worse, from correct to no answer. The notes also highlighted the increase in note use from 60,116 to 72,701, and a rise in the number of model calls (which remained at 74). This illustrates that memory can repair certain errors, but it is costly and comes at the cost of less than always enhancing outcomes.
 
 I wrote this file myself, without any AI tool.
